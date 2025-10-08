@@ -11,6 +11,7 @@ export default class extends BaseSchema {
       table.string('profile_picture').notNullable()
       table.string("phone_number").notNullable()
       table.string("address").notNullable()
+      
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

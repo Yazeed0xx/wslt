@@ -5,8 +5,8 @@ export default class UserProfile extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
+  @column()
+  declare userId: number
 
   @column()
   declare bio: string
@@ -20,8 +20,8 @@ export default class UserProfile extends BaseModel {
   @column()
   declare address: string
 
-  
-
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
