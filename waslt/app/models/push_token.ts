@@ -3,7 +3,7 @@ import { BaseModel, column, belongsTo } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import User from './user.js'
 
-export default class UserProfile extends BaseModel {
+export default class PushToken extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
@@ -11,36 +11,25 @@ export default class UserProfile extends BaseModel {
   declare userId: number
 
   @column()
-  declare firstName: string | null
+  declare token: string
 
   @column()
-  declare lastName: string | null
+  declare platform: 'IOS' | 'ANDROID'
 
   @column()
-  declare avatarUrl: string | null
+  declare appType: 'CUSTOMER' | 'BUSINESS'
 
   @column()
-  declare bio: string | null
-
-  @column.date()
-  declare dateOfBirth: DateTime | null
-
-  // Address fields
-  @column()
-  declare city: string | null
+  declare deviceId: string | null
 
   @column()
-  declare district: string | null
+  declare deviceName: string | null
 
   @column()
-  declare country: string
+  declare isActive: boolean
 
-  @column()
-  declare fullAddress: string | null
-
-  // Preferences (JSON)
-  @column()
-  declare preferences: any | null
+  @column.dateTime()
+  declare lastUsedAt: DateTime | null
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
